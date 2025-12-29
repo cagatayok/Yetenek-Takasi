@@ -125,10 +125,15 @@ Başkalarının ilanlarını görüntüleyin
 
 ## 📸 Ekran Görüntüleri
 
-![Hizmetler](Ekran%20görüntüsü_29-12-2025_21146_.jpeg)
-![İletişim](Ekran%20görüntüsü_29-12-2025_21227_.jpeg)
-![Anasayfa](Ekran%20görüntüsü_29-12-2025_21046_.jpeg)
+<p align="center">
 
+  <img src="Ekran%20görüntüsü_29-12-2025_21146_.jpeg" width="700">
+  <br><br>
+  <img src="Ekran%20görüntüsü_29-12-2025_21227_.jpeg" width="700">
+  <br><br>
+    <img src="Ekran%20görüntüsü_29-12-2025_21046_.jpeg" width="700">
+  
+</p>
 
 
 
