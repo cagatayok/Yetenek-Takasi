@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>YETENEK TAKASI</title>
+
+    <style>
+       
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('assets/img/background.png');
+    
+  }
+
+  .content {
+    flex: 1;
+  }
+</style>
+        
+ 
+
+
+</head>
+
+<body >
+    <nav class="navbar navbar-expand-lg navbar-light bg-white p shadow-sm fixed-top">
+        <div class="container px-5">
+            <a class="navbar-brand fw-bold" href="#">Yetenek Takası </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" id="İlanlar" href="İlanlar.html">İlanlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" id="İlanEkle" href="İlanEkle.html">İlan Ekle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="Profil" href="Profil.html">Profil</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <script>
+        // URL'den userId'yi al
+        document.addEventListener("DOMContentLoaded", function () {
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+        document.getElementById("İlanlar").href = `İlanlar.html`;
+        document.getElementById("İlanEkle").href = `İlanEkle.html`;
+        document.getElementById("Profil").href = `Profil.html`;
+
+        // Gerekirse userId ile veri çekimi yapabilirsin
+    } else {
+        // Giriş yapılmamışsa giriş sayfasına yönlendir:
+        // window.location.href = "giris.html";
+    }
+});
+
+    </script>
+
+
+<div class="content">
+    <div id="ilan-container" class="ilan-wrapper">
+        <!-- İlanlar buraya gelecek -->
+    </div>
+
+</div>
+
+
+
+
+    
+
+
+
+<footer  class="bg-black text-center py-3 mt-5 text-white-50">
+    <div class="container px-5">
+        <div class="text-white-50 small">
+            <div class="mb-2">© 2025 Tüm hakları saklıdır | MEÇKA</div>
+            <span class="mx-1">mecka_yazilim@gmail.com</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    async function listele() {
+        const response = await fetch("https://localhost:7013/api/Adverts/getAllAdverts");
+        const data = await response.json();
+
+        const container = document.getElementById("ilan-container");
+        container.innerHTML = ""; // Önceki içerikleri temizle
+
+        data.forEach(val => {
+            const ilanDiv = document.createElement("div");
+            ilanDiv.className = "ilanlar"; // Her ilan için ayrı bir div ve sınıf
+
+            ilanDiv.innerHTML = `
+                <p><strong >İlan Başlığı:</strong> ${val.title}</p>
+                <p><strong>Yetenek / Hizmet Sunuyorum:</strong> ${val.want}</p>
+                <p><strong>Yetenek / Hizmet İstiyorum:</strong> ${val.present}</p>
+                <p><strong>Kategori:</strong> ${val.category}</p>
+                <p><strong>İletişim:</strong> ${val.email}</p>
+                <hr>
+            `;
+
+            container.appendChild(ilanDiv);
+        });
+    }
+
+    // Sayfa yüklendiğinde listele fonksiyonu otomatik çağrılır
+    window.addEventListener("DOMContentLoaded", listele);
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+        </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>YETENEK TAKASI</title>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white p shadow-sm fixed-top">
+        <div class="container px-5">
+            <a class="navbar-brand fw-bold" href="#">Yetenek Takası </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" id="İlanlar" href="İlanlar.html">İlanlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3" id="İlanEkle" href="İlanEkle.html">İlan Ekle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="Profil" href="Profil.html">Profil</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- NAVBAR LINKLERİNE userId EKLEMEYE GEREK YOK ARTIK -->
+
+    <script>
+        const userId = localStorage.getItem("userId");
+
+        // Kullanıcı giriş yapmadıysa yönlendir
+        if (!userId) {
+            alert("Lütfen giriş yapın.");
+            window.location.href = "login.html";
+        }
+
+        // Navbar linklerini kontrol amaçlı yazarsan yine kullanabilirsin
+        document.getElementById("İlanlar").href = "İlanlar.html";
+        document.getElementById("İlanEkle").href = "İlanEkle.html";
+        document.getElementById("Profil").href = "Profil.html";
+
+    </script>
+
+    <!-- FORM -->
+    <div class="ilan-karti" style="margin-top: 100px;">
+        <h2>İlan Ekle</h2>
+        <form id="ilanForm">
+            <label for="baslik">İlan Başlığı:</label>
+            <input type="text" id="baslik" name="baslik" required>
+
+            <label for="sunulan">Yetenek / Hizmet Sunuyorum:</label>
+            <textarea id="sunulan" name="sunulan" rows="3" required></textarea>
+
+            <label for="istenen">Yetenek / Hizmet İstiyorum:</label>
+            <textarea id="istenen" name="istenen" rows="3" required></textarea>
+
+            <label for="kategori">Kategori:</label>
+            <select id="kategori" name="kategori" class="form-select">
+                <option value="yazilim">Yazılım</option>
+                <option value="muzik">Müzik</option>
+                <option value="yabanci-dil">Yabancı Dil</option>
+                <option value="spor">Spor</option>
+                <option value="el-sanatlari">El Sanatları</option>
+                <option value="diger">Diğer</option>
+            </select>
+
+            <button type="submit">İlanı Yayınla</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- FORM GÖNDERME -->
+    <script>
+        document.getElementById('ilanForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const userId = localStorage.getItem("userId");
+            const email = localStorage.getItem("userEmail");
+            const fullName = localStorage.getItem("fullName");
+
+
+            if (!userId) {
+                alert("Lütfen giriş yapın.");
+                return;
+            }
+
+            // Form verilerini al
+            var baslik = document.getElementById('baslik').value;
+            var sunulan = document.getElementById('sunulan').value;
+            var istenen = document.getElementById('istenen').value;
+            var kategori = document.getElementById('kategori').value;
+
+            // Objeye dönüştür
+            var formData = {
+                Title: baslik,
+                Present: sunulan,
+                Want: istenen,
+                Category: kategori,
+                UserId: userId,
+                Email: email
+            };
+
+            // API'ye POST isteği
+            fetch('https://localhost:7013/api/Adverts/createAdvert', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ilanForm').reset();
+                    alert('İlan başarıyla eklendi!');
+                })
+                .catch(error => {
+                    console.error('Hata:', error);
+                    alert('Bir hata oluştu!');
+                });
+        });
+    </script>
+
+
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-center py-3 mt-5 text-white-50">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div class="mb-2">© 2025 Tüm hakları saklıdır | MEÇKA</div>
+                <span class="mx-1">mecka_yazilim@gmail.com</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
