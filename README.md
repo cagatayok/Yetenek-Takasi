@@ -125,9 +125,9 @@ Başkalarının ilanlarını görüntüleyin
 
 ## 📸 Ekran Görüntüleri
 
-![Anasayfa](Ekran%20görüntüsü_29-12-2025_21046_.jpeg)
 ![Hizmetler](Ekran%20görüntüsü_29-12-2025_21146_.jpeg)
 ![İletişim](Ekran%20görüntüsü_29-12-2025_21227_.jpeg)
+![Anasayfa](Ekran%20görüntüsü_29-12-2025_21046_.jpeg)
 
 
 
