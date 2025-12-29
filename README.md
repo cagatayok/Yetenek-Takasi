@@ -120,9 +120,15 @@ Siteye kayıt olarak giriş yapın
 Yetenek ilanı oluşturun
 
 Başkalarının ilanlarını görüntüleyin
-Ekran görüntüsü_29-12-2025_21046_.jpeg
 
 İlanlara göre kullanıcılarla etkileşime geçin
+
+## 📸 Ekran Görüntüleri
+
+![Anasayfa](Ekran%20görüntüsü_29-12-2025_21046_.jpeg)
+![Hizmetler](Ekran%20görüntüsü_29-12-2025_21146_.jpeg)
+![İletişim](Ekran%20görüntüsü_29-12-2025_21227_.jpeg)
+
 
 
 
