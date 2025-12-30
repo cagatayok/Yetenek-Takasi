@@ -29,7 +29,7 @@ Kullanıcılar siteye becerilerini ilan olarak ekler ve diğer kullanıcıların
 
 ## 🛠️ Teknolojiler
 
-Bu proje büyük olasılıkla şu teknolojileri kullanır (repo içeriğine göre güncellenebilir):
+Bu proje şu teknolojileri kullanır:
 
 | Katman | Teknoloji |
 |--------|-----------|
