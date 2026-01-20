@@ -1,0 +1,102 @@
+[
+  {
+    "ContainingType": "YetenekTakasiApi.Controllers.AdvertsController",
+    "Method": "DeleteAdvert",
+    "RelativePath": "api/Adverts/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YetenekTakasiApi.Controllers.AdvertsController",
+    "Method": "CreateAdvert",
+    "RelativePath": "api/Adverts/createAdvert",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "YetenekTakasiApi.Models.Advert",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YetenekTakasiApi.Controllers.AdvertsController",
+    "Method": "GetAdvertsByUser",
+    "RelativePath": "api/Adverts/getAdvertsByUser/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YetenekTakasiApi.Controllers.AdvertsController",
+    "Method": "GetAllAdverts",
+    "RelativePath": "api/Adverts/getAllAdverts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YetenekTakasiApi.Controllers.UsersController",
+    "Method": "AddInformationUser",
+    "RelativePath": "api/Users/AddInformationUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "YetenekTakasiApi.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YetenekTakasiApi.Controllers.UsersController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Users/getAllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "YetenekTakasiApi.Controllers.UsersController",
+    "Method": "GetByIdUser",
+    "RelativePath": "api/Users/getByIdUser/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
