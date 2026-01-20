@@ -1,0 +1,6 @@
+@YetenekTakasiApi_HostAddress = http://localhost:5096
+
+GET {{YetenekTakasiApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
